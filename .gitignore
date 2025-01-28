@@ -1,1 +1,6 @@
 datasets/downstream/tuh_eeg_events/
+checkpoint/
+datasets/downstream/tuh_eeg_events
+downstream_tueg/Modules/models/__pycache__/
+downstream_tueg/__pycache__/
+downstream_tueg/checkpoints_TUEV/

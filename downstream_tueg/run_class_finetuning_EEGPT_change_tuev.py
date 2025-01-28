@@ -167,14 +167,14 @@ def get_args():
     known_args, _ = parser.parse_known_args()
 
     if known_args.enable_deepspeed:
-        try:
+        # try:
             import deepspeed
             from deepspeed import DeepSpeedConfig
             parser = deepspeed.add_config_arguments(parser)
             ds_init = deepspeed.initialize
-        except:
-            print("Please 'pip install deepspeed==0.4.0'")
-            exit(0)
+        # except:
+        #     print("Please 'pip install deepspeed==0.4.0'")
+        #     exit(0)
     else:
         ds_init = None
 

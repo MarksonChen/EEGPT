@@ -8,12 +8,12 @@ export MASTER_PORT=$((12000 + $RANDOM % 20000))
 SPLIT=${SPLIT:-1}
 
 N_NODES=${N_NODES:-1}  # Number of nodes
-GPUS_PER_NODE=${GPUS_PER_NODE:-2}  # Number of GPUs in each node
+GPUS_PER_NODE=${GPUS_PER_NODE:-1}  # Number of GPUs in each node
 SRUN_ARGS=${SRUN_ARGS:-""}  # Other slurm task args
 PY_ARGS=${@:2}  # Other training args
 
 # Please refer to `run_class_finetuning_EEGPT_change_tuev.py` for the meaning of the following hyperreferences
-CUDA_VISIBLE_DEVICES=4,5 OMP_NUM_THREADS=1 python -m torch.distributed.run --nproc_per_node=${GPUS_PER_NODE} \
+OMP_NUM_THREADS=1 python -m torch.distributed.run --nproc_per_node=${GPUS_PER_NODE} \
         --master_port ${MASTER_PORT} --nnodes=${N_NODES} --node_rank=0 --master_addr="localhost" \
         run_class_finetuning_EEGPT_change_tuev.py \
         --output_dir ./checkpoints_TUEV/finetune_tuev_eegpt/ \

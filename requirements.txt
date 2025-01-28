@@ -160,7 +160,7 @@ timm==0.9.16
 tokenizers==0.15.0
 tomli==2.0.1
 torch==2.0.0
-torch-lfilter==0.0.3
+# torch-lfilter==0.0.3
 torchaudio==2.0.1
 torchcam==0.4.0
 torcheeg==1.1.0
